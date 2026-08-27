@@ -88,7 +88,8 @@
       "title": "Projekt Gutenbergs Bibliotek",
       "description": "Alla böcker på svenska från den första producenten av gratis e-böcker"
     },
-    "footer": {},
+    "footer": {
+    },
     "collections": {
       "A": "A-Allmänna verk",
       "B": "B-Filosofi, psykologi, religion",

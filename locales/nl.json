@@ -129,7 +129,11 @@
       "title": "Project Gutenberg-bibliotheek",
       "description": "Alle boeken in het Nederlands van de eerste producent van gratis e-boeken"
     },
-    "footer": {},
+    "footer": {
+      "createdBy": "Gemaakt door",
+      "packagedBy": "Verpakt door",
+      "kiwix": "Kiwix"
+    },
     "collections": {
       "A": "A-Algemene werken",
       "B": "B-Filosofie, psychologie, religie",

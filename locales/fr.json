@@ -88,7 +88,8 @@
       "title": "Projet Bibliothèque Gutenberg",
       "description": "Tous les livres en français du premier producteur d'ebooks gratuits"
     },
-    "footer": {},
+    "footer": {
+    },
     "collections": {
       "A": "A-Généralités",
       "B": "B-Philosophie, psychologie, religion",
