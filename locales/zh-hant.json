@@ -76,7 +76,8 @@
       "title": "古騰堡計劃文庫",
       "description": "所有英文書籍均來自首家免費電子書製作者"
     },
-    "footer": {},
+    "footer": {
+    },
     "collections": {
       "A": "A-總類",
       "B": "B-哲學、心理學、宗教",

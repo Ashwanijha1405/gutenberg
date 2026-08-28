@@ -41,6 +41,7 @@
       "otherLanguages": "Aner Sproochen",
       "anyCatalog": "Wielt de Katalog",
       "uiLanguage": "Sprooch vum Interface",
+      "close": "Zoumaachen",
       "readMore": "Méi liesen",
       "sortAuthor": "Auteur"
     },
@@ -63,7 +64,9 @@
       "missionParagraph12": "Jiddereen ass wëllkomm, fir zum Projet Gutenberg bäizedroen.",
       "missionParagraph16": "Jiddereen ass wëllkomm hei beim Projet Gutenberg."
     },
-    "footer": {},
+    "footer": {
+      "kiwix": "Kiwix"
+    },
     "collections": {
       "A": "A – Allgemeng Wierker",
       "B": "B – Philosophie, Psychologie, Relioun",

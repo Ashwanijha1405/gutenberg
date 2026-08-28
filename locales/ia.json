@@ -86,7 +86,8 @@
       "title": "Bibliotheca Project Gutenberg",
       "description": "Omne libros in Interlingua ab le prime productor de Ebooks gratuite"
     },
-    "footer": {},
+    "footer": {
+    },
     "collections": {
       "A": "A-Obras general",
       "B": "B-Philosophia, psychologia, religion",

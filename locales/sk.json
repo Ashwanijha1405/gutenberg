@@ -128,7 +128,11 @@
       "title": "Knižnica projektu Gutenberg",
       "description": "Všetky knihy v angličtine od prvého producenta bezplatných elektronických kníh"
     },
-    "footer": {},
+    "footer": {
+      "createdBy": "Vytvorené",
+      "packagedBy": "Balené",
+      "kiwix": "Kiwix"
+    },
     "collections": {
       "A": "A-Všeobecné diela",
       "B": "B-Filozofia, psychológia, náboženstvo",
