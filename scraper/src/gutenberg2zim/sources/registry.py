@@ -35,6 +35,7 @@ class SourceProfile:
     """Everything source-specific the source-agnostic layers need"""
 
     slug: str
+    aliases: tuple[str, ...]
     locale_namespace: str
     display_name: str
     # ZIM metadata values
@@ -63,6 +64,7 @@ class SourceProfile:
 
 GUTENBERG_PROFILE = SourceProfile(
     slug="gutenberg",
+    aliases=("PG",),
     locale_namespace="gutenberg",
     display_name="Project Gutenberg",
     source_creator="gutenberg.org",
@@ -86,6 +88,7 @@ GUTENBERG_PROFILE = SourceProfile(
 
 OPEN_TEXTBOOK_LIBRARY_PROFILE = SourceProfile(
     slug="opentextbooks",
+    aliases=("OTL",),
     locale_namespace="opentextbooks",
     display_name="Open Textbook Library",
     source_creator="open.umn.edu",
@@ -108,10 +111,18 @@ OPEN_TEXTBOOK_LIBRARY_PROFILE = SourceProfile(
 )
 
 SOURCES: dict[str, SourceProfile] = {}
+SOURCE_ALIASES: dict[str, SourceProfile] = {}
 
 
 def register_source(profile: SourceProfile) -> None:
     """Register (or replace) a source profile under its slug"""
+    source_key = profile.slug.casefold()
+    alias_keys = tuple(alias.casefold() for alias in profile.aliases)
+    if source_key != profile.slug:
+        raise ValueError(f"Source slug must be lowercase: {profile.slug}")
+    if len(alias_keys) != len(set(alias_keys)):
+        raise ValueError(f"Source {profile.slug} declares duplicate aliases")
+
     duplicate_options = set(profile.cli_options).intersection(
         option
         for existing_profile in SOURCES.values()
@@ -123,15 +134,53 @@ def register_source(profile: SourceProfile) -> None:
             f"Source {profile.slug} reuses custom CLI option(s): "
             f"{', '.join(sorted(duplicate_options))}"
         )
-    SOURCES[profile.slug] = profile
+
+    alias_owner = SOURCE_ALIASES.get(source_key)
+    if alias_owner and alias_owner.slug != profile.slug:
+        raise ValueError(
+            f"Source slug {profile.slug} conflicts with source alias "
+            f"registered for {alias_owner.slug}"
+        )
+    for alias, alias_key in zip(profile.aliases, alias_keys, strict=True):
+        if alias_key == source_key:
+            raise ValueError(
+                f"Source {profile.slug} cannot use its own slug as an alias"
+            )
+        slug_owner = SOURCES.get(alias_key)
+        if slug_owner and slug_owner.slug != profile.slug:
+            raise ValueError(
+                f"Source alias {alias} conflicts with source slug {slug_owner.slug}"
+            )
+        existing_profile = SOURCE_ALIASES.get(alias_key)
+        if existing_profile and existing_profile.slug != profile.slug:
+            raise ValueError(
+                f"Source alias {alias} is already registered for "
+                f"{existing_profile.slug}"
+            )
+
+    for alias_key, existing_profile in tuple(SOURCE_ALIASES.items()):
+        if existing_profile.slug == profile.slug:
+            del SOURCE_ALIASES[alias_key]
+    SOURCES[source_key] = profile
+    for alias_key in alias_keys:
+        SOURCE_ALIASES[alias_key] = profile
 
 
 def get_source(slug: str) -> SourceProfile:
-    """Return the profile registered for `slug`, aborting on unknown slugs"""
-    profile = SOURCES.get(slug)
+    """Return the profile registered for a source slug or case-insensitive alias."""
+    source_key = slug.casefold()
+    profile = SOURCES.get(source_key) or SOURCE_ALIASES.get(source_key)
     if profile is None:
+        available_sources = ", ".join(
+            (
+                f"{registered.slug} ({', '.join(registered.aliases)})"
+                if registered.aliases
+                else registered.slug
+            )
+            for registered in SOURCES.values()
+        )
         critical_error(
-            f"Unknown source: {slug}. Available sources: {', '.join(sorted(SOURCES))}"
+            f"Unknown source: {slug}. Available sources: {available_sources}"
         )
     return profile
 
