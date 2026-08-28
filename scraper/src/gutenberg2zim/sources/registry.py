@@ -12,7 +12,7 @@ implementations, which keeps `core/` source-free while letting the type
 checker verify each profile against the port contracts at registration time.
 """
 
-from collections.abc import Callable
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -50,7 +50,7 @@ class SourceProfile:
     # URL path (relative to the mirror) of the catalog feed
     catalog_feed_path: str
     catalog: Any
-    cli_options: str
+    cli_options: Mapping[str, str]
     parse_cli_options: Callable[[dict[str, Any]], dict[str, Any]]
     handle_cli_action: Callable[[Any, dict[str, Any]], bool]
     pipeline_options: Callable[[str, Path | None], dict[str, Any]]
@@ -75,7 +75,7 @@ GUTENBERG_PROFILE = SourceProfile(
     default_mirror_url="https://gutenberg.mirror.driftle.ss",
     catalog_feed_path="/cache/epub/feeds/pg_catalog.csv.gz",
     catalog=gutenberg_catalog,
-    cli_options=gutenberg_cli.OPTIONS,
+    cli_options=gutenberg_cli.CLI_OPTIONS,
     parse_cli_options=gutenberg_cli.parse_options,
     handle_cli_action=gutenberg_cli.handle_cli_action,
     pipeline_options=lambda mirror_url, _cache_dir: {"mirror_url": mirror_url},
@@ -98,7 +98,7 @@ OPEN_TEXTBOOK_LIBRARY_PROFILE = SourceProfile(
     default_mirror_url="https://open.umn.edu/opentextbooks",
     catalog_feed_path="",
     catalog=OpenTextbookLibraryCatalog,
-    cli_options=opentextbooks_cli.OPTIONS,
+    cli_options=opentextbooks_cli.CLI_OPTIONS,
     parse_cli_options=opentextbooks_cli.parse_options,
     handle_cli_action=opentextbooks_cli.handle_cli_action,
     pipeline_options=lambda _mirror_url, cache_dir: {"cache_dir": cache_dir},
@@ -112,6 +112,17 @@ SOURCES: dict[str, SourceProfile] = {}
 
 def register_source(profile: SourceProfile) -> None:
     """Register (or replace) a source profile under its slug"""
+    duplicate_options = set(profile.cli_options).intersection(
+        option
+        for existing_profile in SOURCES.values()
+        if existing_profile.slug != profile.slug
+        for option in existing_profile.cli_options
+    )
+    if duplicate_options:
+        raise ValueError(
+            f"Source {profile.slug} reuses custom CLI option(s): "
+            f"{', '.join(sorted(duplicate_options))}"
+        )
     SOURCES[profile.slug] = profile
 
 

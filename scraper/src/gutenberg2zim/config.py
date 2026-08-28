@@ -14,7 +14,7 @@ from zimscraperlib.image.probing import is_hex_color
 from zimscraperlib.inputs import compute_descriptions
 
 from gutenberg2zim.core.utils import ALL_FORMATS, critical_error
-from gutenberg2zim.sources.registry import get_source
+from gutenberg2zim.sources.registry import SOURCES, SourceProfile, get_source
 
 
 @dataclass(frozen=True, slots=True)
@@ -56,11 +56,29 @@ def _validate_colors(primary_color: str | None, secondary_color: str | None) -> 
         critical_error(f"--secondary-color is not a valid hex color: {secondary_color}")
 
 
+def _was_option_supplied(value: object) -> bool:
+    """Return whether a docopt option has a value other than its absent default."""
+    return value is not None and value is not False
+
+
+def _validate_source_cli_options(
+    arguments: dict[str, Any], selected_source: SourceProfile
+) -> None:
+    """Reject custom CLI options declared by a source other than the selected one."""
+    for profile in SOURCES.values():
+        if profile.slug == selected_source.slug:
+            continue
+        for option in profile.cli_options:
+            if _was_option_supplied(arguments.get(option)):
+                critical_error(f"{option} belongs to --source {profile.slug}")
+
+
 def build_scrape_config(arguments: dict) -> ScrapeConfig:
     """Turn parsed CLI arguments (docopt result) into a `ScrapeConfig`"""
     zim_file = arguments.get("--zim-file")
     zim_name = arguments.get("--zim-name")
     source = get_source(arguments.get("--source") or "gutenberg")
+    _validate_source_cli_options(arguments, source)
     source_options = source.parse_cli_options(arguments)
     mirror_url = arguments.get("--mirror-url") or source.default_mirror_url
 

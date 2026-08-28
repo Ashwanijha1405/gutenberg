@@ -46,16 +46,15 @@ SUPPORTED_LCC_SHELVES = {
     "Z",
 }
 
-OPTIONS = (
-    "--lcc-shelves=<shelves>         Comma-separated LCC shelf codes to include "
-    "(e.g., P,PR,Q). Use 'all' for every shelf"
-)
+CLI_OPTIONS = {
+    "--lcc-shelves": (
+        "  --lcc-shelves=<shelves>         Comma-separated LCC shelf codes to "
+        "include (e.g., P,PR,Q). Use 'all' for every shelf"
+    ),
+}
 
 
 def parse_options(arguments: dict[str, Any]) -> dict[str, Any]:
-    for option in ("--subjects", "--otl-ids", "--list-subjects", "--refresh-catalog"):
-        if arguments.get(option):
-            critical_error(f"{option} belongs to --source opentextbooks")
     lcc_shelves_arg = arguments.get("--lcc-shelves")
     if lcc_shelves_arg is None:
         return {}

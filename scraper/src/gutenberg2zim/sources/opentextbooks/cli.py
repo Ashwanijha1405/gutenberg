@@ -5,19 +5,19 @@ from typing import Any
 
 from gutenberg2zim.core.utils import critical_error
 
-OPTIONS = "\n".join(
-    (
-        "  --subjects=<subjects>           Comma-separated Open Textbook Library subjects",  # noqa: E501
-        "  --otl-ids=<ids>                Exact Open Textbook Library record IDs",
-        "  --list-subjects                List Open Textbook Library subjects and exit",
-        "  --refresh-catalog              Refresh the Open Textbook Library CSV catalog and exit",  # noqa: E501
-    )
-)
+CLI_OPTIONS = {
+    "--subjects": "  --subjects=<subjects>           Comma-separated Open Textbook Library subjects",  # noqa: E501
+    "--otl-ids": (
+        "  --otl-ids=<ids>                Exact Open Textbook Library record IDs"
+    ),
+    "--list-subjects": (
+        "  --list-subjects                List Open Textbook Library subjects and exit"
+    ),
+    "--refresh-catalog": "  --refresh-catalog              Refresh the Open Textbook Library CSV catalog and exit",  # noqa: E501
+}
 
 
 def parse_options(arguments: dict[str, Any]) -> dict[str, Any]:
-    if arguments.get("--lcc-shelves") is not None:
-        critical_error("--lcc-shelves belongs to --source gutenberg")
     subjects = [
         item.strip()
         for item in (arguments.get("--subjects") or "").split(",")

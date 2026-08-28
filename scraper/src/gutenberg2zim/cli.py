@@ -12,7 +12,11 @@ from gutenberg2zim.constants import VERSION
 from gutenberg2zim.orchestrator import run_scrape
 from gutenberg2zim.sources.registry import SOURCES
 
-source_options_help = "\n".join(profile.cli_options for profile in SOURCES.values())
+source_options_help = "\n".join(
+    option_help
+    for profile in SOURCES.values()
+    for option_help in profile.cli_options.values()
+)
 
 help_info = f"""Usage: gutenberg2zim [options]
 
@@ -32,7 +36,7 @@ Options:
   -c --concurrency=<nb>           Concurrent processing tasks
   --no-index                      Disable the full-text index
   --title-search                  Enable title search
-  {source_options_help}
+{source_options_help}
   --stats-filename=<filename>     Progress JSON path
   --publisher=<publisher>         ZIM publisher [default: openZIM]
   --mirror-url=<mirror_url>       Source mirror URL
