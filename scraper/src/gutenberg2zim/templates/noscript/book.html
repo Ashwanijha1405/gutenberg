@@ -57,11 +57,11 @@
         <h2>Available Formats</h2>
         {% for fmt in book.requested_formats(formats) %}
         {% if fmt == "html" %}
-        <a href="../{{ book|article_name_for }}" class="format-link">Read Online (HTML)</a>
+        <a href="../{{ book|article_name_for|urlencode }}" class="format-link">Read Online (HTML)</a>
         {% elif fmt == "epub" %}
-        <a href="../{{ book|archive_name_for("epub") }}" class="format-link">Download EPUB</a>
+        <a href="../{{ book|archive_name_for("epub")|urlencode }}" class="format-link">Download EPUB</a>
         {% elif fmt == "pdf" %}
-        <a href="../{{ book|archive_name_for("pdf") }}" class="format-link">Download PDF</a>
+        <a href="../{{ book|archive_name_for("pdf")|urlencode }}" class="format-link">Download PDF</a>
         {% endif %}
         {% endfor %}
     </div>
