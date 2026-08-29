@@ -1,12 +1,12 @@
 {
+  "@metadata": {
+    "authors": [
+      "Brettchenweber"
+    ]
+  },
   "language": "Deutsch",
   "isocode": "de",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Brettchenweber"
-      ]
-    },
     "nav": {
       "home": "Homepage"
     },

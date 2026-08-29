@@ -1,11 +1,11 @@
 {
+  "@metadata": {
+    "authors": [
+      "Saurmandal"
+    ]
+  },
   "language": "हिन्दी",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Saurmandal"
-      ]
-    },
     "book": {
       "anonymous": "अनाम"
     },

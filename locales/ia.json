@@ -1,12 +1,12 @@
 {
+  "@metadata": {
+    "authors": [
+      "McDutchie"
+    ]
+  },
   "language": "Interlingua",
   "isocode": "ia",
   "common": {
-    "@metadata": {
-      "authors": [
-        "McDutchie"
-      ]
-    },
     "nav": {
       "home": "Pagina initial",
       "authors": "Autores",
@@ -86,8 +86,7 @@
       "title": "Bibliotheca Project Gutenberg",
       "description": "Omne libros in Interlingua ab le prime productor de Ebooks gratuite"
     },
-    "footer": {
-    },
+    "footer": {},
     "collections": {
       "A": "A-Obras general",
       "B": "B-Philosophia, psychologia, religion",

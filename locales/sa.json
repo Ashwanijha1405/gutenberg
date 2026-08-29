@@ -1,9 +1,8 @@
 {
-  "common": {
-    "@metadata": {
-      "authors": []
-    }
+  "@metadata": {
+    "authors": []
   },
+  "common": {},
   "gutenberg": {
     "metadata_defaults": {
       "title": "परियोजना गुटेनबर्ग पुस्तकालय",

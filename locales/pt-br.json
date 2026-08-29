@@ -1,13 +1,13 @@
 {
+  "@metadata": {
+    "authors": [
+      "Eduardoaddad",
+      "Leosls"
+    ]
+  },
   "language": "Português",
   "isocode": "pt-BR",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Eduardoaddad",
-        "Leosls"
-      ]
-    },
     "nav": {
       "home": "Página inicial",
       "authors": "Autores",

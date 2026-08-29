@@ -1,12 +1,12 @@
 {
+  "@metadata": {
+    "authors": [
+      "شاه زمان پټان"
+    ]
+  },
   "language": "پښتو",
   "isocode": "ps",
   "common": {
-    "@metadata": {
-      "authors": [
-        "شاه زمان پټان"
-      ]
-    },
     "book": {
       "title": "سرليک",
       "languages": "ژبه",

@@ -1,12 +1,12 @@
 {
+  "@metadata": {
+    "authors": [
+      "Danil Kostenkov"
+    ]
+  },
   "language": "Английский",
   "isocode": "en",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Danil Kostenkov"
-      ]
-    },
     "nav": {
       "home": "Главная",
       "authors": "Авторы",
