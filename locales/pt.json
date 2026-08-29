@@ -1,12 +1,12 @@
 {
+  "@metadata": {
+    "authors": [
+      "Mansil alfalb"
+    ]
+  },
   "language": "Português",
   "isocode": "pt",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Mansil alfalb"
-      ]
-    },
     "nav": {
       "home": "Página principal"
     },

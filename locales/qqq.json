@@ -1,12 +1,12 @@
 {
+  "@metadata": {
+    "authors": [
+      "McDutchie"
+    ]
+  },
   "language": "Name of the language you're translating into, in its own language (autonym). <span style=\"color: red\">'''Do not translate “English” into your language here!'''</span>",
   "isocode": "ISO 639-1 language code for the language you're translating into.",
   "common": {
-    "@metadata": {
-      "authors": [
-        "McDutchie"
-      ]
-    },
     "nav": {
       "home": "Title attribute for the homepage link/button",
       "authors": "Title attribute for the authors page link/button",

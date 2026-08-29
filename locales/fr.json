@@ -1,14 +1,14 @@
 {
+  "@metadata": {
+    "authors": [
+      "Benoit74",
+      "Chpol",
+      "Dash777"
+    ]
+  },
   "language": "Français",
   "isocode": "fr",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Benoit74",
-        "Chpol",
-        "Dash777"
-      ]
-    },
     "nav": {
       "home": "Page d'accueil",
       "authors": "Auteurs",
@@ -88,8 +88,7 @@
       "title": "Projet Bibliothèque Gutenberg",
       "description": "Tous les livres en français du premier producteur d'ebooks gratuits"
     },
-    "footer": {
-    },
+    "footer": {},
     "collections": {
       "A": "A-Généralités",
       "B": "B-Philosophie, psychologie, religion",

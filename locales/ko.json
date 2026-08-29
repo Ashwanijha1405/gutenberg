@@ -1,14 +1,14 @@
 {
+  "@metadata": {
+    "authors": [
+      "Tensama0415",
+      "YeBoy371",
+      "Ykhwong"
+    ]
+  },
   "language": "한국어",
   "isocode": "ko",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Tensama0415",
-        "YeBoy371",
-        "Ykhwong"
-      ]
-    },
     "nav": {
       "home": "홈페이지",
       "authors": "저자",

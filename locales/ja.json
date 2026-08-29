@@ -1,12 +1,11 @@
 {
-  "common": {
-    "@metadata": {
-      "authors": [
-        "Omotecho",
-        "RhAnish"
-      ]
-    }
+  "@metadata": {
+    "authors": [
+      "Omotecho",
+      "RhAnish"
+    ]
   },
+  "common": {},
   "gutenberg": {
     "metadata_defaults": {
       "title": "プロジェクト・グーテンベルク・ライブラリー",

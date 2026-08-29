@@ -1,14 +1,14 @@
 {
+  "@metadata": {
+    "authors": [
+      "Majda GHARRABOU",
+      "Meno25",
+      "Mohammed Qays"
+    ]
+  },
   "language": "العربية",
   "isocode": "ar",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Majda GHARRABOU",
-        "Meno25",
-        "Mohammed Qays"
-      ]
-    },
     "nav": {
       "home": "الصفحة الرئيسية",
       "authors": "Authors",

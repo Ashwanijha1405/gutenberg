@@ -1,12 +1,12 @@
 {
+  "@metadata": {
+    "authors": [
+      "Peterleth"
+    ]
+  },
   "language": "Dansk",
   "isocode": "da",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Peterleth"
-      ]
-    },
     "nav": {
       "home": "Hjemmeside"
     },

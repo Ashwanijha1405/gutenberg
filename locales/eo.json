@@ -1,12 +1,12 @@
 {
+  "@metadata": {
+    "authors": [
+      "Tymewalk"
+    ]
+  },
   "language": "Esperanto",
   "isocode": "eo",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Tymewalk"
-      ]
-    },
     "book": {
       "title": "Titolo"
     },

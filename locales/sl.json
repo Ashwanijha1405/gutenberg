@@ -1,12 +1,12 @@
 {
+  "@metadata": {
+    "authors": [
+      "Eleassar"
+    ]
+  },
   "language": "slovenščina",
   "isocode": "sl",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Eleassar"
-      ]
-    },
     "nav": {
       "home": "Glavna stran",
       "authors": "Avtorji",
@@ -86,8 +86,7 @@
       "title": "Projekt Gutenbergova knjižnica",
       "description": "Vse knjige v slovenščini prvega proizvajalca brezplačnih e-knjig"
     },
-    "footer": {
-    },
+    "footer": {},
     "collections": {
       "A": "A – Splošna dela",
       "B": "B – Filozofija, psihologija, religija",

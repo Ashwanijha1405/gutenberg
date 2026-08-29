@@ -1,12 +1,12 @@
 {
+  "@metadata": {
+    "authors": [
+      "Wizzard"
+    ]
+  },
   "language": "slovenčina",
   "isocode": "sk",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Wizzard"
-      ]
-    },
     "nav": {
       "home": "Domov",
       "authors": "Autori",
