@@ -38,6 +38,17 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: "ui/package.json"
+
+      - name: Build ZIM UI
+        working-directory: ui
+        run: |
+          npm ci
+          npm run build
+
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
@@ -97,6 +108,10 @@ jobs:
 
       - name: Build the Docker image
         run: docker build -t gutenberg .
+
+      - name: Ensure the Docker image contains the packaged ZIM UI
+        run: |
+          docker run --rm gutenberg python -c "from pathlib import Path; import gutenberg2zim; path = Path(gutenberg2zim.__file__).parent / 'zimui'; assert (path / 'index.html').is_file() and (path / 'assets').is_dir(), 'zimui not found'"
 
       - name: Install zimtools
         run: |

@@ -55,6 +55,8 @@ export default defineConfig({
     }
   },
   build: {
+    outDir: '../scraper/src/gutenberg2zim/zimui',
+    emptyOutDir: true,
     chunkSizeWarningLimit: 1000
   },
   server: {

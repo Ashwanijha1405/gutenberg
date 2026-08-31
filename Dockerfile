@@ -1,8 +1,9 @@
 FROM node:24-alpine AS ui
 
-WORKDIR /src
-COPY locales /locales
-COPY ui /src
+WORKDIR /src/ui
+COPY locales /src/locales
+COPY ui /src/ui
+COPY scraper/src/gutenberg2zim /src/scraper/src/gutenberg2zim
 RUN yarn install --frozen-lockfile || npm install
 RUN yarn build || npm run build
 
@@ -34,14 +35,12 @@ ENV LOCALES_LOCATION=/locales
 COPY locales /locales
 COPY scraper /src/scraper
 
+# Copy the UI build into the scraper package before installing it.
+COPY --from=ui /src/scraper/src/gutenberg2zim/zimui /src/scraper/src/gutenberg2zim/zimui
+
 # Install scraper itself + cleanup
 RUN pip install --no-cache-dir /src/scraper \
  && rm -rf /src/scraper
-
-# Copy Vue.js UI build output
-COPY --from=ui /src/dist /src/zimui
-
-ENV ZIM_UI_DIST=/src/zimui
 
 # default output directory
 RUN mkdir -p /output
