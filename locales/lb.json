@@ -1,12 +1,12 @@
 {
+  "@metadata": {
+    "authors": [
+      "Volvox"
+    ]
+  },
   "language": "Lëtzebuergesch",
   "isocode": "lb",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Volvox"
-      ]
-    },
     "nav": {
       "home": "Haaptsäit",
       "authors": "Auteuren",

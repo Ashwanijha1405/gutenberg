@@ -1,12 +1,12 @@
 {
+  "@metadata": {
+    "authors": [
+      "Bjankuloski06"
+    ]
+  },
   "language": "македонски",
   "isocode": "mk",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Bjankuloski06"
-      ]
-    },
     "nav": {
       "home": "Почетна страница"
     },

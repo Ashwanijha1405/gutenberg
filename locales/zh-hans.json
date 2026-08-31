@@ -1,15 +1,15 @@
 {
+  "@metadata": {
+    "authors": [
+      "Administrator66",
+      "Benoit74",
+      "GuoPC",
+      "TFX202X"
+    ]
+  },
   "language": "简体中文",
   "isocode": "zh-hans",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Administrator66",
-        "Benoit74",
-        "GuoPC",
-        "TFX202X"
-      ]
-    },
     "nav": {
       "home": "主页",
       "authors": "作者",

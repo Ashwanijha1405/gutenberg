@@ -1,11 +1,11 @@
 {
+  "@metadata": {
+    "authors": [
+      "Kareyac"
+    ]
+  },
   "language": "Հայերեն",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Kareyac"
-      ]
-    },
     "book": {
       "title": "Գրքեր",
       "license": "Արտոնագիր",

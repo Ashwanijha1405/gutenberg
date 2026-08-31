@@ -1,13 +1,13 @@
 {
+  "@metadata": {
+    "authors": [
+      "McDutchie",
+      "Siebrand"
+    ]
+  },
   "language": "Nederlands",
   "isocode": "nl",
   "common": {
-    "@metadata": {
-      "authors": [
-        "McDutchie",
-        "Siebrand"
-      ]
-    },
     "nav": {
       "home": "Startpagina",
       "authors": "Auteurs",

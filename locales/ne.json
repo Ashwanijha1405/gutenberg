@@ -1,10 +1,10 @@
 {
+  "@metadata": {
+    "authors": [
+      "Pratik11"
+    ]
+  },
   "common": {
-    "@metadata": {
-      "authors": [
-        "Pratik11"
-      ]
-    },
     "home": {
       "allAuthors": "सबै लेखकहरू",
       "discoverAllBooks": "सबै पुस्तकहरू पत्ता लगाउनुहोस्",

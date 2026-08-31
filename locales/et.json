@@ -1,10 +1,10 @@
 {
+  "@metadata": {
+    "authors": [
+      "Rivoz"
+    ]
+  },
   "common": {
-    "@metadata": {
-      "authors": [
-        "Rivoz"
-      ]
-    },
     "nav": {
       "home": "Avaleht",
       "authors": "Autorid",

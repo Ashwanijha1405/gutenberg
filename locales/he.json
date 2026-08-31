@@ -1,14 +1,14 @@
 {
+  "@metadata": {
+    "authors": [
+      "Amire80",
+      "Neriah",
+      "YaronSh"
+    ]
+  },
   "language": "עברית",
   "isocode": "he",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Amire80",
-        "Neriah",
-        "YaronSh"
-      ]
-    },
     "nav": {
       "home": "דף הבית"
     },

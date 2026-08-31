@@ -1,12 +1,12 @@
 {
+  "@metadata": {
+    "authors": [
+      "Jimkats"
+    ]
+  },
   "language": "Ελληνικά",
   "isocode": "el",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Jimkats"
-      ]
-    },
     "nav": {
       "home": "Αρχική σελίδα"
     },

@@ -1,13 +1,13 @@
 {
+  "@metadata": {
+    "authors": [
+      "Laranxa",
+      "Monicapozo03"
+    ]
+  },
   "language": "español",
   "isocode": "es",
   "common": {
-    "@metadata": {
-      "authors": [
-        "Laranxa",
-        "Monicapozo03"
-      ]
-    },
     "nav": {
       "home": "Inicio"
     },

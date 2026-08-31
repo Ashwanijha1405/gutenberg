@@ -1,11 +1,11 @@
 {
+  "@metadata": {
+    "authors": [
+      "Wikipeedikko",
+      "Yupik"
+    ]
+  },
   "common": {
-    "@metadata": {
-      "authors": [
-        "Wikipeedikko",
-        "Yupik"
-      ]
-    },
     "home": {
       "allAuthors": "Kaikki kirjoittajat",
       "discoverAllBooks": "Selaa kaikkia kirjoja",
