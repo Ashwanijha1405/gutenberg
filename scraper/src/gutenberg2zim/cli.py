@@ -12,14 +12,19 @@ from gutenberg2zim.constants import VERSION
 from gutenberg2zim.orchestrator import run_scrape
 from gutenberg2zim.sources.registry import SOURCES
 
-source_options_help = "\n".join(profile.cli_options for profile in SOURCES.values())
+source_options_help = "\n".join(
+    option_help
+    for profile in SOURCES.values()
+    for option_help in profile.cli_options.values()
+)
 
 help_info = f"""Usage: gutenberg2zim [options]
 
 Options:
   -h --help                       Display this help message
   --overwrite                     Overwrite ZIM file if target already exists
-  --source=<source>               Source slug [default: gutenberg]
+  --source=<source>               Source slug or short name: gutenberg (PG),
+                                  opentextbooks (OTL) [default: gutenberg]
   -l --languages=<list>           Comma-separated language codes
   -f --formats=<list>             Formats: epub, html, pdf, or all
   -z --zim-file=<file>            ZIM output path
@@ -32,7 +37,7 @@ Options:
   -c --concurrency=<nb>           Concurrent processing tasks
   --no-index                      Disable the full-text index
   --title-search                  Enable title search
-  {source_options_help}
+{source_options_help}
   --stats-filename=<filename>     Progress JSON path
   --publisher=<publisher>         ZIM publisher [default: openZIM]
   --mirror-url=<mirror_url>       Source mirror URL

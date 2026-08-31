@@ -16,6 +16,11 @@ def test_subjects_are_rejected_for_gutenberg():
         build_scrape_config({"--source": "gutenberg", "--subjects": "Mathematics"})
 
 
+def test_empty_foreign_source_option_is_rejected():
+    with pytest.raises(CriticalError, match="belongs to --source opentextbooks"):
+        build_scrape_config({"--source": "gutenberg", "--subjects": ""})
+
+
 def test_subjects_are_stored_for_opentextbooks():
     config = build_scrape_config(
         {
