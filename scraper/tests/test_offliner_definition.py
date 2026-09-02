@@ -33,3 +33,18 @@ def test_recipe_uses_enum_choices_for_supported_formats():
     assert [
         choice["value"] for choice in definition["flags"]["formats"]["choices"]
     ] == ["epub", "html", "pdf"]
+
+
+def test_recipe_exposes_custom_zim_tags():
+    definition = json.loads(DEFINITION_PATH.read_text(encoding="utf-8"))
+
+    assert definition["flags"]["zim_tags"] == {
+        "type": "string",
+        "required": False,
+        "title": "ZIM Tags",
+        "description": (
+            "Semicolon-separated ZIM tags. Overrides the selected source's default "
+            "tags; for example: _category:medical;gutenberg."
+        ),
+    }
+    assert {"metadata": "Tags", "flag": "zim_tags"} in definition["zimMetadata"]

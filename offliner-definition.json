@@ -91,6 +91,12 @@
       "pattern": "^[a-z]{3}(,[a-z]{3})*$",
       "customValidator": "language_code"
     },
+    "zim_tags": {
+      "type": "string",
+      "required": false,
+      "title": "ZIM Tags",
+      "description": "Semicolon-separated ZIM tags. Overrides the selected source's default tags; for example: _category:medical;gutenberg."
+    },
     "books": {
       "type": "string",
       "required": false,
@@ -200,6 +206,10 @@
     {
       "metadata": "Language",
       "flag": "zim_languages"
+    },
+    {
+      "metadata": "Tags",
+      "flag": "zim_tags"
     }
   ]
 }
