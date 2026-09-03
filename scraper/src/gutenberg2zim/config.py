@@ -118,9 +118,7 @@ def build_scrape_config(arguments: dict) -> ScrapeConfig:
             cache_dir.mkdir(parents=True, exist_ok=True)
         except OSError as exc:
             critical_error(f"Unable to create --cache-dir {cache_dir}: {exc}")
-    # Calculate default UI dist path: from scraper/src/gutenberg2zim/config.py
-    # go up to repo root, then to ui/dist
-    default_ui_dist = Path(__file__).parent.parent.parent.parent / "ui" / "dist"
+    default_ui_dist = Path(__file__).parent / "zimui"
     ui_dist_raw = (
         arguments.get("--ui-dist")
         or os.getenv("ZIM_UI_DIST")

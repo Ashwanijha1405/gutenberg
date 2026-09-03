@@ -1,5 +1,7 @@
 """Source-specific CLI configuration validation."""
 
+from pathlib import Path
+
 import pytest
 
 from gutenberg2zim.config import build_scrape_config
@@ -74,3 +76,11 @@ def test_cache_dir_is_opt_in_and_resolved(tmp_path):
 
     assert config.cache_dir == cache_dir.resolve()
     assert cache_dir.is_dir()
+
+
+def test_default_ui_dist_is_packaged_with_the_scraper():
+    config = build_scrape_config({"--source": "gutenberg"})
+
+    assert config.ui_dist == (
+        Path(__file__).parents[1] / "src" / "gutenberg2zim" / "zimui"
+    )
