@@ -52,6 +52,17 @@ def test_otl_only_arguments_are_rejected_for_gutenberg():
         build_scrape_config({"--source": "gutenberg", "--list-subjects": True})
 
 
+def test_zim_tags_override_source_defaults():
+    config = build_scrape_config(
+        {
+            "--source": "gutenberg",
+            "--zim-tags": " _category:medical;gutenberg ",
+        }
+    )
+
+    assert config.zim_tags == "_category:medical;gutenberg"
+
+
 def test_source_neutral_environment_variables_configure_output_and_ui(
     monkeypatch, tmp_path
 ):

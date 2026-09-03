@@ -33,6 +33,7 @@ Options:
   -n --zim-desc=<description>     ZIM description
   -L --zim-long-desc=<description> ZIM long description
   --zim-languages=<languages>     ZIM language metadata
+  --zim-tags=<tags>               Semicolon-separated ZIM tags
   -b --books=<ids>                Source catalog positions or ranges
   -c --concurrency=<nb>           Concurrent processing tasks
   --no-index                      Disable the full-text index

@@ -240,7 +240,7 @@ def build_zimfile(
         name=zim_name,
         publisher=publisher,
         source_creator=profile.source_creator,
-        tags=profile.zim_tags,
+        tags=config.zim_tags or profile.zim_tags,
         with_fulltext_index=with_fulltext_index,
         debug=debug,
     )

@@ -38,6 +38,7 @@ class ScrapeConfig:
     description: str | None = None
     long_description: str | None = None
     zim_languages: list[str] | None = None
+    zim_tags: str | None = None
     publisher: str = "openZIM"
     overwrite: bool = False
     is_selection: bool = False
@@ -193,6 +194,7 @@ def build_scrape_config(arguments: dict) -> ScrapeConfig:
             if (zim_languages := arguments.get("--zim-languages"))
             else None
         ),
+        zim_tags=(arguments.get("--zim-tags") or "").strip() or None,
         publisher=publisher,
         overwrite=overwrite,
         is_selection=bool(
