@@ -3,6 +3,22 @@
   "stdOutput": true,
   "stdStats": true,
   "flags": {
+    "source": {
+      "type": "string-enum",
+      "required": false,
+      "title": "Source",
+      "description": "Book source to scrape. Source-specific options are shown below; do not combine options from different sources.",
+      "choices": [
+        {
+          "title": "Project Gutenberg",
+          "value": "gutenberg"
+        },
+        {
+          "title": "Open Textbook Library",
+          "value": "opentextbooks"
+        }
+      ]
+    },
     "languages": {
       "type": "string",
       "required": false,
@@ -10,10 +26,24 @@
       "description": "Comma-separated list of lang codes to filter export to (preferably ISO 639-1, else ISO 639-3) Defaults to all"
     },
     "formats": {
-      "type": "string",
+      "type": "list-of-string-enum",
       "required": false,
       "title": "Formats",
-      "description": "Comma-separated list of formats to filter export to (epub, html, pdf, all) Defaults to all"
+      "description": "Formats to include. Leave empty to include all supported formats.",
+      "choices": [
+        {
+          "title": "EPUB",
+          "value": "epub"
+        },
+        {
+          "title": "HTML",
+          "value": "html"
+        },
+        {
+          "title": "PDF",
+          "value": "pdf"
+        }
+      ]
     },
     "zim_file": {
       "type": "string",
@@ -65,7 +95,7 @@
       "type": "string",
       "required": false,
       "title": "Books",
-      "description": "Filter to only specific books ; separated by commas, or dashes for intervals. Defaults to all"
+      "description": "Source catalog positions or ranges, separated by commas. Open Textbook Library positions refer to eligible catalog entries. Defaults to all."
     },
     "concurrency": {
       "type": "integer",
@@ -89,8 +119,20 @@
     "lcc_shelves": {
       "type": "string",
       "required": false,
-      "title": "Library of Congress Shelves",
-      "description": "Comma-separated list of LCC shelf codes to include (e.g., P,PR,Q). Use 'all' to generate all shelves. If omitted, no shelf filtering."
+      "title": "Library of Congress Shelves (Project Gutenberg only)",
+      "description": "Comma-separated LCC shelf codes to include (e.g., P,PR,Q). Use 'all' for every shelf. Do not use with Open Textbook Library."
+    },
+    "subjects": {
+      "type": "string",
+      "required": false,
+      "title": "Subjects (Open Textbook Library only)",
+      "description": "Comma-separated Open Textbook Library subjects to include. Do not use with Project Gutenberg."
+    },
+    "otl_ids": {
+      "type": "string",
+      "required": false,
+      "title": "Textbook IDs (Open Textbook Library only)",
+      "description": "Comma-separated exact Open Textbook Library record IDs. Cannot be combined with Books."
     },
     "publisher": {
       "type": "string",
@@ -117,7 +159,7 @@
       "type": "string",
       "required": false,
       "title": "Mirror URL",
-      "description": "URL to a specific Gutenberg mirror to use"
+      "description": "URL to a source mirror or API base. Defaults to the selected source's standard endpoint."
     },
     "primary_color": {
       "type": "string",
