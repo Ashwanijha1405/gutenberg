@@ -62,8 +62,8 @@ const { t } = useI18n()
 
 .list-book-card:hover,
 .list-book-card:focus {
-  border-color: rgb(var(--v-theme-text));
-  box-shadow: 0 0 5px 0 rgb(var(--v-theme-text));
+  border-color: rgb(var(--v-theme-grid));
+  box-shadow: 0 0 10px 0 rgb(var(--v-theme-grid));
   z-index: 1;
 }
 

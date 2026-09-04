@@ -69,8 +69,8 @@ const isCarousel = () => props.variant === 'carousel'
 
 .author-card--carousel:hover,
 .author-card--carousel:focus {
-  border-color: rgb(var(--v-theme-text));
-  box-shadow: 0 0 5px 0 rgb(var(--v-theme-text));
+  border-color: rgb(var(--v-theme-grid));
+  box-shadow: 0 0 10px 0 rgb(var(--v-theme-grid));
   z-index: 1;
 }
 
